@@ -27,7 +27,7 @@ function App() {
       <button onClick={incrementNumber}>Increment</button>
       <h2>Most recent numbers:</h2>
       <ul>
-        {numberHistory.map((previousNumber, index, array) => {
+        {numberHistory.map((previousNumber, index) => {
           return <li key={index}>{previousNumber}</li>;
         })}
       </ul>
