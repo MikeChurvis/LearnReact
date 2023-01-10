@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [number, setNumber] = useState(0);
@@ -10,6 +10,10 @@ function App() {
   function decrementNumber() {
     setNumber((previousNumber) => previousNumber - 1);
   }
+
+  useEffect(() => {
+    console.log(number);
+  }, [number]);
 
   return (
     <main>
