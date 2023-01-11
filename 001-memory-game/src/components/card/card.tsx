@@ -12,7 +12,7 @@ function Card(props: CardProps) {
 
   return (
     <div className="card">
-      {value}
+      {revealed ? value : null}
       <input
         type="checkbox"
         checked={revealed}
