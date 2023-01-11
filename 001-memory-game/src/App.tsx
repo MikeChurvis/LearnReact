@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { shuffle, concatToSelf } from "./utils";
+import { Card } from "./components/card";
 
 function App() {
   const [cardNumbers] = useState<number[]>(
@@ -31,16 +32,13 @@ function App() {
       <div id="memory-game-container">
         {cardNumbers.map((value, index) => {
           return (
-            <div className="card" key={index}>
-              {value}
-              <input
-                type="checkbox"
-                checked={cardsRevealed[index]}
-                onChange={(event) =>
-                  handleCardStateChange(index, event.target.checked)
-                }
-              />
-            </div>
+            <Card
+              key={index}
+              index={index}
+              value={value}
+              revealed={cardsRevealed[index]}
+              cardInteractionHandler={handleCardStateChange}
+            />
           );
         })}
       </div>
