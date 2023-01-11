@@ -1,27 +1,13 @@
-import { useState } from "react";
-import { shuffle, concatToSelf } from "./utils";
 import { Card } from "./components/card";
+import { useMemoryGameController } from "./hooks";
 
 function App() {
-  const [cardNumbers] = useState<number[]>(
-    shuffle(concatToSelf([1, 2, 3, 4, 5, 6, 7, 8]))
-  );
-
-  const [cardsRevealed, setCardsRevealed] = useState(
-    Array<boolean>(cardNumbers.length).fill(false)
-  );
-
-  function handleCardStateChange(cardIndex: number, newState: boolean) {
-    const newCardsRevealed = [...cardsRevealed];
-    newCardsRevealed[cardIndex] = newState;
-    setCardsRevealed(newCardsRevealed);
-  }
+  const { cardNumbers, cardsRevealed, revealCard } = useMemoryGameController();
 
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "row",
         justifyContent: "center",
       }}
     >
@@ -47,7 +33,7 @@ function App() {
                 index={index}
                 value={value}
                 revealed={cardsRevealed[index]}
-                cardInteractionHandler={handleCardStateChange}
+                cardInteractionHandler={revealCard}
               />
             );
           })}
