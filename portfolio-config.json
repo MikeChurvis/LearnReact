@@ -1,0 +1,10 @@
+{
+  "projects": [
+    {
+      "title": "Undoable Counter",
+      "basePath": "./000-counter",
+      "buildOutputFolder": "dist",
+      "websiteBaseURL": "counter"
+    }
+  ]
+}
