@@ -1,7 +1,20 @@
+import { useState } from "react";
+import { shuffle, concatToSelf } from "./utils";
+
 function App() {
-  const cardNumbers: number[] = shuffleArray(
-    concatenateToSelf([1, 2, 3, 4, 5, 6, 7, 8])
+  const [cardNumbers] = useState<number[]>(
+    shuffle(concatToSelf([1, 2, 3, 4, 5, 6, 7, 8]))
   );
+
+  const [cardsRevealed, setCardsRevealed] = useState(
+    Array<boolean>(cardNumbers.length).fill(false)
+  );
+
+  function handleCardStateChange(cardIndex: number, newState: boolean) {
+    const newCardsRevealed = [...cardsRevealed];
+    newCardsRevealed[cardIndex] = newState;
+    setCardsRevealed(newCardsRevealed);
+  }
 
   return (
     <>
@@ -17,27 +30,22 @@ function App() {
       </p>
       <div id="memory-game-container">
         {cardNumbers.map((value, index) => {
-          return <div key={index}>{value}</div>;
+          return (
+            <div className="card" key={index}>
+              {value}
+              <input
+                type="checkbox"
+                checked={cardsRevealed[index]}
+                onChange={(event) =>
+                  handleCardStateChange(index, event.target.checked)
+                }
+              />
+            </div>
+          );
         })}
       </div>
     </>
   );
-}
-
-function concatenateToSelf<Type>(array: Type[]): Type[] {
-  return [...array, ...array];
-}
-
-function shuffleArray<Type>(array: Type[]): Type[] {
-  let randomIndices = array.map((value) => {
-    return { value: value, randomIndex: Math.random() };
-  });
-
-  randomIndices.sort((a, b) => a.randomIndex - b.randomIndex);
-
-  const outputArray = randomIndices.map((value) => value.value);
-
-  return outputArray;
 }
 
 export default App;
