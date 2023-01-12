@@ -2,12 +2,18 @@ import { Card } from "./components/card";
 import { useMemoryGameController } from "./hooks";
 
 function App() {
-  const { cards, selectedCards, interactWithCard, checkGameIsWon, resetGame } =
-    useMemoryGameController(8);
+  const {
+    cards,
+    selectedCardIndexes,
+    interactWithCard,
+    checkGameIsWon,
+    resetGame,
+  } = useMemoryGameController(8);
 
   const selectedCardsMatch =
-    selectedCards.length === 2 &&
-    cards[selectedCards[0]].number === cards[selectedCards[1]].number;
+    selectedCardIndexes.length === 2 &&
+    cards[selectedCardIndexes[0]].number ===
+      cards[selectedCardIndexes[1]].number;
 
   return (
     <div
@@ -39,7 +45,7 @@ function App() {
               <Card
                 key={index}
                 isRevealed={card.isRevealed}
-                isSelected={selectedCards.includes(index)}
+                isSelected={selectedCardIndexes.includes(index)}
                 number={card.number}
                 onSelect={() => interactWithCard(index)}
               />
