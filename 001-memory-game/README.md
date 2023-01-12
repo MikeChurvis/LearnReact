@@ -1,6 +1,6 @@
 # Memory Game
 
-There is a list of cards. Each card has two sides: one is blank, the other has a number. All cards start number-side down.
+There is a list of cards. Each card has two sides: one is blank, the other has a number. All cards start number-side down; you cannot see the number.
 
 Click a card to flip it over and see its number. Then, click another card to see its number. If the numbers on the cards match, the cards will remain number-side up; these cards have been *revealed*. If not, they'll both flip back down to their blank side.
 
