@@ -1,6 +1,6 @@
 # Test-Driven To-Do List
 
-This is mainly an experiment in how to migrate applications using test coverage instead of code.
+This is mainly an experiment in how to migrate an application to a new codebase using existing high-level test coverage instead of just shoehorning in legacy code.
 
 When you install Playwright as your end-to-end test runner, it comes with an example test suite out of the box. This example targets a to-do list app written by the Playwright devs. It covers the full feature set of the application, testing functionality at the highest level.
 
