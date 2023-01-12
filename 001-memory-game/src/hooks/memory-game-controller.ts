@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { shuffle, concatToSelf } from "../utils";
+import { shuffle } from "../utils";
 
 interface Card {
   readonly number: number;
@@ -108,7 +108,7 @@ function generateCards(numbersToMatch: number): Card[] {
     .map((_, index) => index + 1);
 
   // Make two of each number and shuffle them up.
-  numbersForCards = shuffle(concatToSelf(numbersForCards));
+  numbersForCards = shuffle(numbersForCards.concat(numbersForCards));
 
   const cards = numbersForCards.map((number, index) => {
     return { number, isRevealed: false };
