@@ -2,7 +2,12 @@ import { Card } from "./components/card";
 import { useMemoryGameController } from "./hooks";
 
 function App() {
-  const { cardNumbers, cardsRevealed, revealCard } = useMemoryGameController();
+  const { cards, selectedCards, interactWithCard, checkGameIsWon, resetGame } =
+    useMemoryGameController(8);
+
+  const selectedCardsMatch =
+    selectedCards.length === 2 &&
+    cards[selectedCards[0]].number === cards[selectedCards[1]].number;
 
   return (
     <div
@@ -22,18 +27,21 @@ function App() {
         <p>
           <strong>When all cards are number-side up, you win!</strong>
         </p>
+        <div>
+          {selectedCardsMatch ? <span>Selected cards match.</span> : null}
+        </div>
         <div
           id="memory-game-container"
           style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}
         >
-          {cardNumbers.map((value, index) => {
+          {cards.map((card, index) => {
             return (
               <Card
                 key={index}
-                index={index}
-                value={value}
-                revealed={cardsRevealed[index]}
-                cardInteractionHandler={revealCard}
+                isRevealed={card.isRevealed}
+                isSelected={selectedCards.includes(index)}
+                number={card.number}
+                onSelect={() => interactWithCard(index)}
               />
             );
           })}

@@ -1,25 +1,21 @@
-type ValueType = any;
-
 interface CardProps {
-  index: number;
-  value: ValueType;
-  revealed: boolean;
-  cardInteractionHandler: (idx: number, val: ValueType) => void;
+  isRevealed: boolean;
+  isSelected: boolean;
+  number: number;
+  onSelect: () => void;
 }
 
 function Card(props: CardProps) {
-  const { index, value, revealed, cardInteractionHandler } = props;
+  const { isRevealed, isSelected, number, onSelect } = props;
+
+  const showNumber = isRevealed || isSelected;
 
   return (
     <div className="card">
-      {revealed ? value : null}
-      <input
-        type="checkbox"
-        checked={revealed}
-        onChange={(event) =>
-          cardInteractionHandler(index, event.target.checked)
-        }
-      />
+      {showNumber ? (
+        <span>{isRevealed ? <strong>{number}</strong> : number}</span>
+      ) : null}
+      <input type="checkbox" checked={showNumber} onChange={() => onSelect()} />
     </div>
   );
 }
