@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: "off" */
 import { test, expect, type Page } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
