@@ -26,6 +26,7 @@ function App() {
           onChange={(e) => setNewTodoTitle(e.target.value)}
         />
       </form>
+      <p data-pw="todo-count">{todos.length} items left</p>
       <ul>
         {todos.map((todo: Todo) => {
           return (
