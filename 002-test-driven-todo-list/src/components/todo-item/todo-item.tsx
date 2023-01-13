@@ -1,8 +1,4 @@
-import type { Todo } from "../../App.types";
-
-interface TodoItemProps {
-  todo: Todo;
-}
+import type { TodoItemProps } from "./todo-item.types";
 
 export function TodoItem(props: TodoItemProps) {
   const { todo } = props;
