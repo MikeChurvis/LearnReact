@@ -1,9 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 // modified version of source: https://usehooks.com/useLocalStorage/
 
 // Hook
-export function useLocalStorage<Type>(key: string, initialValue: Type) {
+export function useLocalStorage<Type>(
+  key: string,
+  initialValue: Type
+): [Type, React.Dispatch<Type>] {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {

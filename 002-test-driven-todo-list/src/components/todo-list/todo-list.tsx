@@ -3,17 +3,18 @@ import { Todo } from "../../App.types";
 
 interface TodoListProps {
   todos: Todo[];
+  updateTodo: (newTodoState: Todo) => void;
 }
 
 export function TodoList(props: TodoListProps) {
-  const { todos } = props;
+  const { todos, updateTodo } = props;
 
   return (
     <>
       <p data-pw="todo-count">{todos.length} items left</p>
       <ul>
         {todos.map((todo) => {
-          return <TodoItem todo={todo} key={todo.id} />;
+          return <TodoItem key={todo.id} todo={todo} updateTodo={updateTodo} />;
         })}
       </ul>
     </>
