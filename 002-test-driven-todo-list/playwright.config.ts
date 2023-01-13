@@ -50,6 +50,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices["Desktop Chrome"],
       },
+      fullyParallel: true,
     },
 
     {
@@ -57,6 +58,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices["Desktop Firefox"],
       },
+      fullyParallel: true,
     },
 
     {
@@ -64,6 +66,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices["Desktop Safari"],
       },
+      fullyParallel: true,
     },
 
     /* Test against mobile viewports. */
