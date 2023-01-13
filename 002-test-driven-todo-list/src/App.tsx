@@ -1,10 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useLocalStorage } from "./hooks";
-
-type Todo = {
-  id: string;
-  title: string;
-};
+import { TodoItem } from "./components/todo-item";
+import { Todo } from "./App.types";
 
 function App() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("react-todos", []);
@@ -29,11 +26,7 @@ function App() {
       <p data-pw="todo-count">{todos.length} items left</p>
       <ul>
         {todos.map((todo: Todo) => {
-          return (
-            <li data-pw="todo-title" key={todo.id}>
-              {todo.title}
-            </li>
-          );
+          return <TodoItem todo={todo} key={todo.id} />;
         })}
       </ul>
     </>
