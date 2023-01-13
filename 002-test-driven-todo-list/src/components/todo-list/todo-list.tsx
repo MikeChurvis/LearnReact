@@ -1,5 +1,9 @@
-import type { TodoListProps } from "./todo-list.types";
 import { TodoItem } from "../todo-item";
+import { Todo } from "../../App.types";
+
+interface TodoListProps {
+  todos: Todo[];
+}
 
 export function TodoList(props: TodoListProps) {
   const { todos } = props;
