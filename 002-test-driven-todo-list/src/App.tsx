@@ -13,6 +13,7 @@ function App() {
   function handleCreateNewTodo(event: FormEvent) {
     event.preventDefault();
     setTodos([...todos, { id: Date.now().toString(), title: newTodoTitle }]);
+    setNewTodoTitle("");
   }
 
   return (
