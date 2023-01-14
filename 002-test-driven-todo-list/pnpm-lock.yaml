@@ -11,6 +11,7 @@ specifiers:
   eslint: ^8.31.0
   eslint-plugin-jsx-a11y: ^6.7.1
   eslint-plugin-react: ^7.32.0
+  eslint-plugin-react-hooks: ^4.6.0
   react: ^18.2.0
   react-dom: ^18.2.0
   typescript: ^4.9.3
@@ -31,6 +32,7 @@ devDependencies:
   eslint: 8.31.0
   eslint-plugin-jsx-a11y: 6.7.1_eslint@8.31.0
   eslint-plugin-react: 7.32.0_eslint@8.31.0
+  eslint-plugin-react-hooks: 4.6.0_eslint@8.31.0
   typescript: 4.9.4
   vite: 4.0.4_@types+node@18.11.18
 
@@ -1188,6 +1190,15 @@ packages:
       object.entries: 1.1.6
       object.fromentries: 2.0.6
       semver: 6.3.0
+    dev: true
+
+  /eslint-plugin-react-hooks/4.6.0_eslint@8.31.0:
+    resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+    dependencies:
+      eslint: 8.31.0
     dev: true
 
   /eslint-plugin-react/7.32.0_eslint@8.31.0:
