@@ -8,6 +8,14 @@ function App() {
     undoLastChange,
   } = useCounter(0);
 
+  function increment() {
+    changeCurrentNumber(1);
+  }
+
+  function decrement() {
+    changeCurrentNumber(-1);
+  }
+
   return (
     <main className="container">
       <hgroup>
@@ -15,8 +23,8 @@ function App() {
         <p>Number: {currentNumber}</p>
       </hgroup>
       <div className="grid">
-        <button onClick={() => changeCurrentNumber(-1)}>Decrement</button>
-        <button onClick={() => changeCurrentNumber(1)}>Increment</button>
+        <button onClick={increment}>Decrement</button>
+        <button onClick={decrement}>Increment</button>
       </div>
       <div>
         <button disabled={previousNumbers.length < 1} onClick={undoLastChange}>
