@@ -9,9 +9,12 @@ function App() {
   } = useCounter(0);
 
   return (
-    <main>
-      <h1>Number: {currentNumber}</h1>
-      <div>
+    <main className="container">
+      <hgroup>
+        <h1>Counter</h1>
+        <p>Number: {currentNumber}</p>
+      </hgroup>
+      <div className="grid">
         <button onClick={() => changeCurrentNumber(-1)}>Decrement</button>
         <button onClick={() => changeCurrentNumber(1)}>Increment</button>
       </div>
