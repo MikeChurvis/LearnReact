@@ -7,7 +7,7 @@ function useCounter(initialNumber: number) {
   function changeCurrentNumber(byAmount: number) {
     const newNumber = currentNumber + byAmount;
     setCurrentNumber(newNumber);
-    setPreviousNumbers([newNumber, ...previousNumbers]);
+    setPreviousNumbers([currentNumber, ...previousNumbers]);
   }
 
   function undoLastChange() {
